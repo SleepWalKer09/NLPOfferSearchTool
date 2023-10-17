@@ -1,0 +1,4 @@
+FetchTest/
+__pycache__/
+*.py[cod]
+*.pyc

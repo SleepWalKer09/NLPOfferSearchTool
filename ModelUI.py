@@ -6,15 +6,13 @@ import os
 import matplotlib.pyplot as plt
 
 
-# API Endpoint
+
 API_ENDPOINT = "http://localhost:8000/search"
 
-# Load datasets
 brands_df = pd.read_csv(os.path.join("Datasets", "brand_category.csv"))
 categories_df = pd.read_csv(os.path.join("Datasets", "categories.csv"))
 offers_df = pd.read_csv(os.path.join("Datasets", "offer_retailer.csv"))
 
-# Extract unique information for the dropdown menus
 unique_brands = brands_df['BRAND'].unique().tolist()
 unique_categories = categories_df['PRODUCT_CATEGORY'].unique().tolist()
 unique_retailers = offers_df['RETAILER'].unique().tolist()
@@ -22,15 +20,13 @@ unique_retailers = offers_df['RETAILER'].unique().tolist()
 # Group by the category, sum the RECEIPTS, and get the top 6 categories
 top_categories = brands_df.groupby("BRAND_BELONGS_TO_CATEGORY")["RECEIPTS"].sum().nlargest(5)
 
-# Streamlit UI
+
 st.title("Offer Searcher 🏷️💲")
 st.write("---")  # Line separator
 st.subheader("Discover relevant offers based on your input! 🕵️‍♂️🛍️")
 st.write("You can search by product, category, brand, or retailer.")
-# Text input
 user_input = st.text_input("📣 Enter your search:", placeholder="e.g. Amazon, Coffee, SUBWAY")
 
-# Submit button
 if st.button("Search"):
     # Build the parameters for the API based on user selections
     response = requests.get(f"{API_ENDPOINT}/{user_input}")
@@ -50,7 +46,7 @@ if st.button("Search"):
 
 
 
-# Visualization: Bar chart for top 6 categories
+
 st.subheader("Top 5 Categories by Receipts")
 st.write("Below are the categories with the highest number of receipts, providing insights into the most popular shopping preferences among users.")
 fig, ax = plt.subplots(figsize=(10, 5))

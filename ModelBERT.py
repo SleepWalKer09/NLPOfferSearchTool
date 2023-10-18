@@ -7,13 +7,12 @@ import os
 model = SentenceTransformer('paraphrase-MiniLM-L6-v2')
 
 def generate_embedding(text):
-    """Genera un embedding SBERT para un texto dado."""
-    embedding = model.encode(text, convert_to_numpy=True) #text list -> embedding generado tenga la forma (1, d)
+    """Generate a SBERT embedding for the user text."""
+    embedding = model.encode(text, convert_to_numpy=True)
     return embedding
 
 def generate_and_save_embeddings():
-    """Genera y guarda embeddings SBERT para las ofertas."""
-    # Cargar el archivo con las ofertas
+    """Generate and save SBERT embeddings for the offers."""
     offer_df = pd.read_csv(os.path.join("Datasets", "offer_retailer.csv"))
     
     # Generate embeddings for each offer

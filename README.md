@@ -16,3 +16,11 @@ The Offer Searcher is a comprehensive tool designed to efficiently fetch and dis
 Retail companies can use this tool to guide their customers to the most relevant promotional offers.
 Market researchers can quickly find offers related to specific categories or brands.
 Regular users can explore and find the best deals based on their preferences.
+
+
+## Streamlit UI
+With the search for "soup" offers
+
+<p align="center">
+  <img src="https://github.com/SleepWalKer09/NLPOfferSearchTool/assets/44912298/d02dfd30-90df-44fa-8c25-5f43e8ad3091">
+</p>

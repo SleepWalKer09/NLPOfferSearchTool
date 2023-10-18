@@ -1,0 +1,20 @@
+version: '3.11'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - type: volume
+        source: app_data
+        target: /data
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: uvicorn ModelAPI:app --host 0.0.0.0 --reload
+
+volumes:
+  app_data:
